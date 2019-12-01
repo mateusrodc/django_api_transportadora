@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+  <h1>Lista de Funcionarios</h1>
+    <a class="btn btn-primary" role='button' href='/funcionario/add'>Novo</a>
+    <br />
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">NOME</th>
+                <th scope="col">SOBRENOME</th>
+                <th scope="col">CPF</th>
+                <th scope="col">TEMPO DE SERVIÇO</th>
+                <th scope="col">REMUNERAÇÃO</th>
+                <th scope="col">AÇÕES</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for f in lista_funcionarios %}
+                <tr>
+                    <th scope="row">{{ f.pk }}</th>
+                    <td>{{ f.nome }}</td>
+                    <td>{{ f.sobrenome }}</td>
+                    <td>{{ f.cpf }}</td>
+                    <td>{{f.tempo_de_servico}}</td>
+                    <td>{{f.remuneracao}}</td>
+                    <td>
+                        <a href="/funcionario/editar/{{f.pk}}" class="btn btn-warning" >Editar</a>
+                        <a href="/funcionario/remover/{{f.pk}}" class="btn btn-danger" >Remover</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

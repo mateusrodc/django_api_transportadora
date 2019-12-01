@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Autenticar</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/4.0/examples/sign-in/signin.css" rel="stylesheet">
+    
+  </head>
+
+  <body class="text-center">
+    <form class="form-autenticar" action="/autenticar/" method="post">
+      {% csrf_token %}
+      <h1 class="h3 mb-3 font-weight-normal">Por favor entre</h1>
+      <div class='card'>
+        <div class='card-body'>
+          <div class='form-group'>
+            <label for="usuario" class="sr-only">Usuário</label>
+            <input type="text" name="usuario" class="form-control" placeholder="Usuário do sistema" required autofocus>
+          </div>
+          <div class='form-group'>
+            <label for="senha" class="sr-only">Senha</label>
+            <input type="password" name="senha" class="form-control" placeholder="senha" required>
+          </div>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+          <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
+        </div>
+      </div>  
+    </form>
+  </body>
+</html>

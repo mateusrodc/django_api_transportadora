@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+  <h1>Novo Veiculo</h1>
+  <form action="/veiculo/salvar" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="id_veiculo" value="{{veiculo.pk}}">
+    <div class="form-group">
+        <label for="marca">Marca</label>
+        <input type="text" class="form-control" id="marca" name="marca" value='{{veiculo.marca}}'>
+    </div>
+    <div class="form-group">
+        <label for="modelo">Modelo</label>
+        <input type="text" class="form-control" id="modelo" name="modelo" value='{{veiculo.modelo}}'>
+    </div>
+    <div class="form-group">
+        <label for="tipo">Tipo</label>
+        <input type="text" class="form-control" id="tipo" name="tipo" value='{{veiculo.tipo}}'>
+    </div>
+    <div class="form-group">
+        <label for="combustivel">Combustivel</label>
+        <input type="text" class="form-control" id="combustivel" name="combustivel" value='{{veiculo.combustivel}}'>
+    </div>
+    <div class="form-group">
+        <label for="placa">Placa</label>
+        <input type="text" class="form-control" id="placa" name="placa" value='{{veiculo.placa}}'>
+    </div>
+    <div class="form-group">
+        <label for="chassi">Chassi</label>
+        <input type="text" class="form-control" id="chassi" name="chassi" value='{{veiculo.chassi}}'>
+    </div>
+    <div class="form-group">
+        <label for="ano">Ano Veiculo</label>
+        <input type="text" class="form-control" id="ano" name="ano" value='{{veiculo.ano}}'>
+    </div>
+    <div class="form-group">
+        <label for="capacidade">Capacidade de pessoas</label>
+        <input type="text" class="form-control" id="capacidade" name="capacidade" value='{{veiculo.capacidade}}'>
+    </div>
+    
+    <button type="submit" class="btn btn-success" role='button'>Salvar</button>
+    <a href="/veiculo" class="btn btn-secondary"> Cancelar</a>
+  </form>
+  
+{% endblock %}
