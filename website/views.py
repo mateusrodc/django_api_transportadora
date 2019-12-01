@@ -105,3 +105,48 @@ def remover_veiculos(request,id):
     veiculo = Veiculo.objects.get(id=id)
     veiculo.delete()
     return redirect('/veiculo')
+@login_required
+def listaAtendimento(request):
+    lista_atendimento = Atendimento.objects.all()
+    return render(request, 'lista_atendimento.html', context={'lista_atendimento': lista_atendimento})
+@login_required
+def cadastrarAtendimento(request):
+    funcionarios = Funcionario.objects.all()
+    veiculos = Veiculo.objects.all()
+
+    context = { 'funcionarios': funcionarios, 'veiculos': veiculos}
+
+    return render(request, 'add_atendimento.html',context)
+@login_required
+def salvarAtendimento(request):
+    funcionario = request.POST.get('motorista_atendimento')
+    veiculo = request.POST.get('veiculo_atendimento')
+    destino = request.POST.get('destino')
+    observacao = request.POST.get('observacao')
+    id_atendimento= request.POST.get('id_atendimento')
+    if id_atendimento:
+        atendimento= Atendimento.objects.get(pk=id_atendimento)
+    else:
+        atendimento= Atendimento()
+    atendimento.motorista_id=funcionario
+    atendimento.veiculo_id=veiculo
+    atendimento.destino=destino
+    atendimento.observacao=observacao
+    atendimento.save()
+    return redirect('/atendimento')
+@login_required
+def editarAtendimento(request,id):
+    funcionarios = Funcionario.objects.all()
+    veiculos = Veiculo.objects.all()
+    atendimento= Atendimento.objects.get(pk=id)
+    context = {
+        "atendimento":atendimento,
+        "veiculos":veiculos,
+        "funcionarios":funcionarios,
+    }
+    return render(request,'add_atendimento.html',context)
+@login_required
+def removerAtendimento(request,id):
+    atendimento= Atendimento.objects.get(id=id)
+    atendimento.delete()
+    return redirect('/atendimento')

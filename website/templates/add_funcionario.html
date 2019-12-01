@@ -11,27 +11,27 @@
     <input type="hidden" name="id_funcionario" value="{{funcionario.pk}}">
     <div class='form-group'>
         <label>Nome:</label>
-        <input  class ='form-control' name='nome_funcionario' type="text" placeholder="Nome:" value='{{funcionario.nome}}' required></input>
+        <input  class ='form-control' id = 'nome_funcionario' name='nome_funcionario' type="text" placeholder="Nome:" value='{{funcionario.nome}}' required></input>
     </div>
     <br/>
     <div class='form-group'>
         <label>Sobrenome:</label>
-        <input class= 'form-control' name='sobrenome_funcionario' type="text" placeholder="Sobrenome:" value='{{funcionario.sobrenome}}'required></input>
+        <input class= 'form-control' id = 'sobrenome_funcionario' name='sobrenome_funcionario' type="text" placeholder="Sobrenome:" value='{{funcionario.sobrenome}}'required></input>
     </div>
     <br/>
     <div class='form-group'>
         <label>CPF:</label>
-        <input class= 'form-control' name='cpf_funcionario' type="text" placeholder="CPF:" value='{{funcionario.cpf}}'required></input>
+        <input class= 'form-control' id = 'cpf_funcionario' name='cpf_funcionario' type="text" placeholder="CPF:" value='{{funcionario.cpf}}'required></input>
     </div>
     <br/>
     <div class='form-group'>
         <label>Horas Trabalhadas:</label>
-        <input class= 'form-control' name='tempo_funcionario' type="text" placeholder="Horas Trabalhadas" value='{{funcionario.tempo_de_servico}}' required></input>
+        <input class= 'form-control' id = 'tempo_funcionario' name='tempo_funcionario' type="text" placeholder="Horas Trabalhadas" value='{{funcionario.tempo_de_servico}}' required></input>
     </div>
     <br/>
     <div class='form-group'>
         <label>Remuneração:</label>
-        <input class= 'form-control' name='remuneracao_funcionario' type="text" placeholder="Remuneração" value='{{funcionario.remuneracao}}' required></input>
+        <input class= 'form-control' id = 'remuneracao_funcionario' name='remuneracao_funcionario' type="text" placeholder="Remuneração" value='{{funcionario.remuneracao}}' required></input>
     </div>
     <br/>
     <button type="submit" class="btn btn-success" role="button">Salvar</button>

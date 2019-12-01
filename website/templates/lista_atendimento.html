@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<h1>Lista de Atendimentos</h1>
+    <a class="btn btn-primary" role='button' href='/atendimento/add'>Novo</a>
+    <br />
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">DATA DE ATENDIMENTO</th>
+                <th scope="col">DESTINO</th>
+                <th scope="col">MOTORISTA</th>
+                <th scope="col">AÇÕES</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for a in lista_atendimento %}
+                <tr>
+                    <th scope="row">{{ a.pk }}</th>
+                    <td>{{ a.data_atendimento }}</td>
+                    <td>{{ a.destino }}</td>
+                    <td>{{a.motorista}}</td>
+                    <td>
+                        <a href="/atendimento/editar/{{a.pk}}" class="btn btn-warning" >Editar</a>
+                        <a href="/atendimento/remover/{{a.pk}}" class="btn btn-danger" >Remover</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

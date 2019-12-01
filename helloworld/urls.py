@@ -22,14 +22,22 @@ urlpatterns = [
     path('', do_logout, name='logout'),
     path('index/', index, name='index'),
     path('autenticar/', do_login, name="autenticar"),
+    
     path('funcionario/', listafuncionarios, name='home_funcionario'),
     path('funcionario/add', cadastrarfuncionarios, name='create_funcionario'),
     path('funcionario/salvar', salvarfuncionarios, name='salvar_funcionario'),
     path('funcionario/editar/<int:id>/',editarfuncionarios,name='editar_funcionario'),
     path('funcionario/remover/<int:id>/',removerfuncionarios,name='remover_funcionario'),
+
     path('veiculo/', lista_veiculos, name="lista_veiculos"),
     path('veiculo/add', criar_veiculo, name='criar_veiculo'),
     path('veiculo/salvar',salvar_veiculo,name='salvar_veiculo'),
     path('veiculo/editar/<int:id>/',editar_veiculos,name='editar_veiculo'),
     path('veiculo/remover/<int:id>/',remover_veiculos,name='remover_veiculo'),
+
+    path('atendimento/', listaAtendimento, name="lista_atendimentos"),
+    path('atendimento/add',cadastrarAtendimento,name="create_atendimentos"),
+    path('atendimento/salvar',salvarAtendimento,name="salvar_atendimento"),
+    path('atendimento/editar/<int:id>/',editarAtendimento,name="editar_atendimento"),
+    path('atendimento/remover/<int:id>/',removerAtendimento,name="remover_atendimento"),
 ]

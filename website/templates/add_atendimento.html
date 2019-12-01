@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<mat-card>
+    <mat-card-header><h5 class="text-center">Dados do Atendimento</h5></mat-card-header>
+</mat-card>
+
+<form action="/atendimento/salvar" method="post">
+    {% csrf_token %}
+
+    <input type="hidden" name="id_atendimento" value="{{atendimento.pk}}">
+    <div class='form-group'>
+        <label>Observação:</label>
+        <input  class ='form-control' id = 'observacao' name='observacao' type="text" placeholder="Observação:" value='{{atendimento.observacao}}'></input>
+    </div>
+    <br/>
+    <div class='form-group'>
+        <label for="motorista_atendimento">Motorista:</label>
+        <select class= 'form-control' id = 'motorista_atendimento' name='motorista_atendimento' placeholder="Motorista:" value='{{funcionario.id}}'>
+            {% for funcionario in funcionarios %}
+			    <option value="{{funcionario.id}}"> {{funcionario.nome}}</option>
+			{% endfor %}
+        </select>
+    </div>
+    <br/>
+    <div class='form-group'>
+        <label for="veiculo_atendimento">Veículo</label>
+		<select class='form-control' id= "veiculo_atendimento" name="veiculo_atendimento" placeholder="Veículo" value='{{veiculo.id}}'>
+			{% for veiculo in veiculos %}
+			    <option value="{{veiculo.id}}"> {{veiculo.placa}}</option>
+			{% endfor %}
+		</select>
+    </div>
+    <br/>
+    <div class='form-group'>
+        <label>Destino:</label>
+        <input class= 'form-control' id = 'destino' name='destino' type="text" placeholder="Destino:" value='{{atendimento.destino}}' required></input>
+    </div>
+    <br/>
+    <button type="submit" class="btn btn-success" role="button">Salvar</button>
+</form>
+  
+{% endblock %}

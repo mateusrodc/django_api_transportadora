@@ -33,4 +33,14 @@ class Veiculo(models.Model):
     def __str__(self):
         return '{} {} {}'.format(self.placa, self.marca, self.modelo)
 
+class Atendimento(models.Model):
+    motorista = models.ForeignKey(Funcionario,on_delete=models.CASCADE)
+    veiculo = models.ForeignKey(Veiculo,on_delete=models.CASCADE)
+    data_atendimento = models.DateTimeField(auto_now_add=True)
+    destino = models.CharField(max_length=255,null=False,blank=False)
+    observacao = models.CharField(max_length=255,null=True,blank=True, verbose_name='observação')
+
+    def __str__(self):
+        return '{}: {}'.format(self.motorista, self.destino)
+
 
