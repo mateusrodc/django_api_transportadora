@@ -40,4 +40,10 @@ urlpatterns = [
     path('atendimento/salvar',salvarAtendimento,name="salvar_atendimento"),
     path('atendimento/editar/<int:id>/',editarAtendimento,name="editar_atendimento"),
     path('atendimento/remover/<int:id>/',removerAtendimento,name="remover_atendimento"),
+
+    path('estudante/',listaEstudante,name="lista_estudantes"),
+    path('estudante/add',cadastrarEstudante,name="create_estudante"),
+    path('estudante/salvar',salvarEstudante,name="salvar_estudante"),
+    path('estudante/editar/<int:id>/',editarEstudante,name="editar_estudante"),
+    path('estudante/remover/<int:id>/',excluirEstudante,name="remover_estudante"),
 ]

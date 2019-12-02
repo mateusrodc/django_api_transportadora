@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<mat-card>
+    <mat-card-header><h5 class="text-center">Dados do Estudante</h5></mat-card-header>
+</mat-card>
+
+<form action="/estudante/salvar" method="post">
+    {% csrf_token %}
+
+    <input type="hidden" name="id_estudante" value="{{estudante.pk}}">
+    <div class='form-group'>
+        <label>Nome:</label>
+        <input  class ='form-control' id = 'nome' name='nome' type="text" placeholder="Nome:" value='{{estudante.nome}}' required></input>
+    </div>
+    <br/>
+    <div class='form-group'>
+        <label>Faculdade:</label>
+        <input class= 'form-control' id = 'faculdade' name='faculdade' type="text" placeholder="Faculdade:" value='{{estudante.faculdade}}'required></input>
+    </div>
+    <br/>
+    <div class='form-group'>
+        <label>CPF:</label>
+        <input class= 'form-control' id = 'cpf' name='cpf' type="text" placeholder="CPF:" value='{{estudante.cpf}}'required></input>
+    </div>
+    <br/>
+    <div class='form-group'>
+        <label>RG:</label>
+        <input class= 'form-control' id = 'rg' name='rg' type="text" placeholder="RG:" value='{{estudante.rg}}' required></input>
+    </div>
+    <br/>
+    <div class='form-group'>
+        <label>Matricula:</label>
+        <input class= 'form-control' id = 'matricula' name='matricula' type="text" placeholder="Matricula:" value='{{estudante.matricula}}' required></input>
+    </div>
+    <br/>
+    <div class='form-group'>
+        <label>Curso:</label>
+        <input class= 'form-control' id = 'curso' name='curso' type="text" placeholder="Curso:" value='{{estudante.curso}}' required></input>
+    </div>
+    <br/>
+    <button type="submit" class="btn btn-success" role="button">Salvar</button>
+</form>
+  
+{% endblock %}

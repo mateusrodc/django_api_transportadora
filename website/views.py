@@ -150,3 +150,43 @@ def removerAtendimento(request,id):
     atendimento= Atendimento.objects.get(id=id)
     atendimento.delete()
     return redirect('/atendimento')
+
+@login_required
+def listaEstudante(request):
+    estudantes= Estudante.objects.all()
+    return render(request,"lista_estudante.html",context={'estudantes': estudantes})
+
+def cadastrarEstudante(request):
+    return render(request,"add_estudante.html",context=None)
+
+def salvarEstudante(request):
+    nome= request.POST.get('nome')
+    matricula = request.POST.get('matricula')
+    cpf = request.POST.get('cpf')
+    rg = request.POST.get('rg')
+    curso = request.POST.get('curso')
+    faculdade = request.POST.get('faculdade')
+
+    id_estudante = request.POST.get('id_estudante')
+    if id_estudante:
+        estudante = Estudante.objects.get(pk=id_estudante)
+    else:
+        estudante= Estudante()
+
+    estudante.nome=nome
+    estudante.matricula=matricula
+    estudante.cpf=cpf
+    estudante.rg=rg
+    estudante.curso=curso
+    estudante.faculdade=faculdade
+    estudante.save()
+    return redirect('/estudante')
+
+def editarEstudante(request,id):
+    estudante= Estudante.objects.get(pk=id)
+    return render(request,"add_estudante.html",context={'estudante':estudante})
+
+def excluirEstudante(request,id):
+    estudante = Estudante.objects.get(id=id)
+    estudante.delete()
+    return redirect('/estudante')

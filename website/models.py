@@ -43,4 +43,20 @@ class Atendimento(models.Model):
     def __str__(self):
         return '{}: {}'.format(self.motorista, self.destino)
 
+class Estudante(models.Model):
+    nome = models.CharField(max_length=255)
+    matricula = models.CharField(max_length=255)
+    cpf = models.CharField(max_length=14,null=False,blank=False)
+    rg = models.CharField(max_length=14,null=False,blank=False)
+    curso = models.CharField(max_length=255,null=False,blank=False)
+    faculdade = models.CharField(max_length=255,null=False,blank=False)
+
+    class Meta:
+        ordering = ['nome','faculdade']
+        verbose_name = 'estudante'
+
+    def __str__(self):
+        return '{}: {}'.format(self.nome,self.faculdade)
+
+
 
